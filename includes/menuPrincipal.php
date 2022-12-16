@@ -18,6 +18,11 @@
                                 <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-list-ol me-2"></i>Temas</a>
                             </div>
                         </div>
+                        <div class="accordion-body">
+                            <div class="list-group">
+                                <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                
