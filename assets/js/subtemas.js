@@ -1,2 +1,9 @@
 const formulario = document.querySelector('form');
-console.log("hola");
+
+
+
+const iniciarModulo = (e) => {
+    generarTabla();
+    buttonModificar.parentElement.style.display = 'none'
+    buttonModificar.disabled = true
+}

@@ -12,8 +12,13 @@ include_once '../includes/header.php'; ?>
                 </div>
                 <input type="hidden" name="id" id="id">
                 <div class="row justify-content-center mb-3">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <label for="nombre">Nombre del tema</label>
+                        <select   id="tema" class="form-control">
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="nombre">Nombre del subtema</label>
                         <input type="text" name="nombre" id="nombre" class="form-control">
                     </div>
                 </div>
