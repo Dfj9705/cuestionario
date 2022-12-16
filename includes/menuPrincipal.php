@@ -37,12 +37,12 @@
         </div>
         <div>
             <?php if(!isset($_SESSION['auth_user'])): ?>
-            <button class="btn btn-secondary" type="button" >
+            <a href="../cp_login/registro.php" class="btn btn-secondary" type="button" >
                 Registrarse
-            </button>
-            <button class="btn btn-primary" type="button" >
+            </a>
+            <a href="../cp_login/login.php" class="btn btn-primary" type="button" >
                 Ingresar
-            </button>
+            </a>
             <?php else : ?>
             <a href="../../logout.php" class="btn btn-danger" type="button" >
                 Salir
