@@ -2,10 +2,10 @@
 	session_start();
 	class ClsConex {
 		function getConexion() {
-			$user = $_SESSION['auth_user'];
-			$pass = $_SESSION['pass'];
-			// $user =	623041;
-			// $pass = 623041;
+			// $user = $_SESSION['auth_user'];
+			// $pass = $_SESSION['pass'];
+			$user =	623041;
+			$pass = 623041;
 			try {
                 $conexion = new PDO("informix:host=192.168.73.30; service=1526; database=mdn; server=atila_tcp; protocol=onsoctcp; EnableScrollableCursors=1;", $user, $pass); //atila
                 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
