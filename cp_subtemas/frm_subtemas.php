@@ -7,14 +7,14 @@ include_once '../includes/header.php'; ?>
             <form class="col-lg-6 border rounded p-3 bg-light">
                 <div class="row text-center mb-5" >
                     <div class="col-12">
-                        <h1>INGRESO DE TEMAS</h1>
+                        <h1>INGRESO DE SUBTEMAS</h1>
                     </div>
                 </div>
                 <input type="hidden" name="id" id="id">
                 <div class="row justify-content-center mb-3">
                     <div class="col-lg-6">
                         <label for="nombre">Nombre del tema</label>
-                        <select   id="tema" class="form-control">
+                        <select    class="form-control" name="tema" id="tema">
                         </select>
                     </div>
                     <div class="col-lg-6">
