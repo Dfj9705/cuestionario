@@ -16,10 +16,7 @@
                         <div class="accordion-body">
                             <div class="list-group">
                                 <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-list-ol me-2"></i>Temas</a>
-                            </div>
-                        </div>
-                        <div class="accordion-body">
-                            <div class="list-group">
+            
                                 <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
                             </div>
                         </div>
@@ -34,14 +31,15 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="d-flex w-100 justify-content-between px-3">
         <div>
-        <?php if(isset($_SESSION['auth_user'])): ?>
+        <?php if(isset($_SESSION['auth'])): ?>
+       
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i class="bi bi-list"></i>
         </button>
         <?php endif ?>
         </div>
-        <div>
-            <?php if(!isset($_SESSION['auth_user'])): ?>
+        <div class="d-flex">
+            <?php if(!isset($_SESSION['auth'])): ?>
             <a href="../cp_login/registro.php" class="btn btn-secondary" type="button" >
                 Registrarse
             </a>
@@ -49,7 +47,10 @@
                 Ingresar
             </a>
             <?php else : ?>
-            <a href="../../logout.php" class="btn btn-danger" type="button" >
+            <button class="btn btn-dark">
+                <?= $_SESSION['nombre'] ?>
+            </button>
+            <a href="../cp_login/logout.php" class="btn btn-danger" type="button" >
                 Salir
             </a>
             <?php endif ?>
