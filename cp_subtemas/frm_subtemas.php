@@ -14,7 +14,7 @@ include_once '../includes/header.php'; ?>
                 <div class="row justify-content-center mb-3">
                     <div class="col-lg-6">
                         <label for="nombre">Nombre del tema</label>
-                        <select   id="tema" class="form-control">
+                        <select    class="form-control" name="tema" id="tema">
                         </select>
                     </div>
                     <div class="col-lg-6">

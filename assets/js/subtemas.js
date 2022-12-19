@@ -1,4 +1,4 @@
-const formulario = document.querySelector('form');
+const Temas = document.querySelector('#tema')
 
 
 
@@ -36,3 +36,6 @@ const selectTemas = async () => {
         console.log(error);
     }
 }
+
+
+Temas.addEventListener('click', selectTemas);
