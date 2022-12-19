@@ -30,4 +30,12 @@ class ClsUser extends ClsConex{
         return $resultado;
     }
 
+    public function buscarUsuario(){
+        $sql = "SELECT * from ciber_usuarios inner join mper on per_catalogo = usu_catalogo inner join grados on per_grado = gra_codigo where usu_correo = '$this->correo' ";
+        $resultado = $this->exec_query($sql);
+        return $resultado;
+    }
+
+    
+
 }
