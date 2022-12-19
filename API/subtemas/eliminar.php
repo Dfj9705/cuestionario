@@ -10,7 +10,7 @@ try {
     ]);
 } catch (PDOException $e) {
     echo json_encode([
-        "error" => $e->getMessage()
+        "error" => $e->getMessage() 
     ]);
     exit;
 }
