@@ -55,7 +55,6 @@ const guardarTema = async (e) => {
     try {
         const response = await fetch(url,config);
         const data = await response.json();
-        console.log(data);
         if(data.resultado){
             alertToast('success','Información guardada');
             limpiar(formulario);
@@ -125,7 +124,7 @@ const modificarTipo = async (e) => {
         return;
     }
     const body = new FormData(formulario);
-    const url = "../API/temas/modificar.php";
+    const url = "../API/subtemas/modificar.php";
     const config = {
         method : 'POST',
         body

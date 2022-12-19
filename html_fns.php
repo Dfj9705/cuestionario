@@ -2,6 +2,7 @@
    	include_once 'clases/ClsMenu.php';
    	include_once 'clases/ClsUser.php';
    	include_once 'clases/ClsTemas.php' ;
+   	include_once 'clases/ClsSubtema.php';
 
 
 	function formatearGrado ($grado, $codigogrado , $arma, $codigoarma){
