@@ -67,4 +67,17 @@ class ClsUser extends ClsConex{
         $resultado = $this->exec_sql($sql);
         return $resultado;
     }
+
+    
+    public function actualizarCorreo(){
+        $sql = "UPDATE ciber_usuarios set usu_correo = '$this->correo' where usu_id = $this->id ";
+        $resultado = $this->exec_sql($sql);
+        return $resultado;
+    }
+
+    public function desactivarUsuario(){
+        $sql = "UPDATE ciber_usuarios set usu_situacion = 0 where usu_id = $this->id ";
+        $resultado = $this->exec_sql($sql);
+        return $resultado;
+    }
 }
