@@ -142,7 +142,7 @@ const eliminarRegistro = async (id) => {
 const traerInformacion = (data) => {
     console.log(data)
     formulario.id.value = data.id;
-    formulario.subtema.value = data.subtema;
+    formulario.subtema.value = data.id_subtema;
     formulario.pregunta.value = data.descripcion;
     buttonModificar.parentElement.style.display = ''
     buttonModificar.disabled = false

@@ -12,6 +12,7 @@ try {
             'id' => $tema['ID'],
             'subtema' => $tema['SUBTEMA'],
             'descripcion' => $tema['DESCRIPCION'],
+            'id_subtema' => $tema['ID_SUBTEMA'],
             'contador' => $key + 1
            
         ];
