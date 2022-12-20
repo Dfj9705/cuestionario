@@ -1,26 +1,21 @@
-const Temas = document.querySelector('#tema')
 const formulario = document.querySelector('form');
 const buttonModificar = document.querySelector('#btnModificar')
 const buttonGuardar = document.querySelector('#btnGuardar')
 const buttonLimpiar = document.querySelector('#btnLimpiar')
 
 
-
-
-
-
 const iniciarModulo = (e) => {
     generarTabla();
-    selectTemas();
+    selectSubtemas();
     buttonModificar.parentElement.style.display = 'none'
     buttonModificar.disabled = true
 }
 
 
-// FUNCION PARA HACER SELECT
-const selectTemas = async () => {
-    const select = document.querySelector('#tema');
-    const url = "../API/temas/buscar.php";
+
+const selectSubtemas = async () => {
+    const select = document.querySelector('#subtema');
+    const url = "../API/subtemas/buscar.php";
     const config = {
         method : 'GET'
     }
@@ -46,8 +41,7 @@ const selectTemas = async () => {
 
 
 
-
-const guardarSubtema = async (e) => {
+const guardarPreguntas = async (e) => {
     e && e.preventDefault();
     if(!validarFormulario(formulario, ['id'])){
         alertToast('warning', 'Debe llenar todos los campos');
@@ -55,7 +49,7 @@ const guardarSubtema = async (e) => {
     }
     const body = new FormData(formulario);
     body.delete('id');
-    const url = "../API/subtemas/guardar.php";
+    const url = "../API/preguntas/guardar.php";
     const config = {
         method : 'POST',
         body
@@ -64,10 +58,11 @@ const guardarSubtema = async (e) => {
     try {
         const response = await fetch(url,config);
         const data = await response.json();
+        console.log(data)
         if(data.resultado){
             alertToast('success','Información guardada');
             limpiar(formulario);
-            generarTabla();
+            // generarTabla();
         }else{
             alertToast('error','Ocurrió un error');
 
@@ -79,25 +74,22 @@ const guardarSubtema = async (e) => {
 }
 
 
-// buscar tabla 
-
 const generarTabla = async(e) => {
-    const url = "../API/subtemas/buscar.php";
+    const url = "../API/preguntas/buscar.php";
     const config = {
         method : 'GET'
     }
     try {
         const response = await fetch(url,config);
         const data = await response.json();
-        // console.log(data);
         $("#tablaTemas").DataTable().destroy();
         let tabla = $("#tablaTemas").DataTable({
             language : lenguaje,
             data : data,
             columns : [
                 {data : "contador", "width" : "5%"},
-                {data : "tema"},
-                {data : "nombre"},
+                {data : "subtema"},
+                {data : "descripcion"},
                 {
                     data : "id",
                     "render" : (data , type, row, meta) => `<button class='btn btn-warning' onclick='traerInformacion(${JSON.stringify(row)})'><i class="bi bi-pencil-square me-2"></i>Editar</button>`,
@@ -118,11 +110,39 @@ const generarTabla = async(e) => {
 }
 
 
+const eliminarRegistro = async (id) => {
+    const body = new FormData();
+    body.append('id', id);
+    const url = "../API/preguntas/eliminar.php";
+    const config = {
+        method : 'POST',
+        body
+    }
+
+    try {
+        const response = await fetch(url,config);
+        const data = await response.json();
+        console.log(data);
+        if(data.resultado){
+            alertToast('success','Información eliminada');
+            generarTabla();
+        }else{
+            alertToast('error','Ocurrió un error');
+
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
 
 const traerInformacion = (data) => {
     formulario.id.value = data.id;
-    formulario.tema.value = data.tema;
-    formulario.nombre.value = data.nombre;
+    formulario.subtema.value = data.subtema;
+    formulario.pregunta.value = data.descripcion;
     buttonModificar.parentElement.style.display = ''
     buttonModificar.disabled = false
     buttonGuardar.parentElement.style.display = 'none'
@@ -132,16 +152,14 @@ const traerInformacion = (data) => {
 }
 
 
-
-
-const modificarSubtema = async (e) => {
+const modificarPregunta = async (e) => {
     e &&  e.preventDefault();
     if(!validarFormulario(formulario)){
         alertToast('warning', 'Debe llenar todos los campos');
         return;
     }
     const body = new FormData(formulario);
-    const url = "../API/subtemas/modificar.php";
+    const url = "../API/preguntas/modificar.php";
     const config = {
         method : 'POST',
         body
@@ -172,33 +190,8 @@ const modificarSubtema = async (e) => {
 }
 
 
-const eliminarRegistro = async (id) => {
-    const body = new FormData();
-    body.append('id', id);
-    const url = "../API/subtemas/eliminar.php";
-    const config = {
-        method : 'POST',
-        body
-    }
 
-    try {
-        const response = await fetch(url,config);
-        const data = await response.json();
-        console.log(data);
-        if(data.resultado){
-            alertToast('success','Información eliminada');
-            generarTabla();
-        }else{
-            alertToast('error','Ocurrió un error');
-
-        }
-        
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-iniciarModulo();
-formulario.addEventListener('submit', guardarSubtema);
-buttonModificar.addEventListener('click', modificarSubtema)
+iniciarModulo()
+formulario.addEventListener('submit', guardarPreguntas);
 buttonLimpiar.addEventListener('click', limpiar(formulario))
+buttonModificar.addEventListener('click', modificarPregunta)

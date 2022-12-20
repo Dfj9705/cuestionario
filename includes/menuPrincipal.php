@@ -18,6 +18,7 @@
                                 <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-list-ol me-2"></i>Temas</a>
             
                                 <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
+                                <a href="../cp_preguntas/frm_preguntas.php" class="list-group-item"><i class="bi bi-question-circle-fill me-2"></i>Preguntas</a>
                             </div>
                         </div>
                     </div>
