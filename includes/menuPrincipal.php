@@ -18,7 +18,11 @@
                                 <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-list-ol me-2"></i>Temas</a>
             
                                 <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
+<<<<<<< HEAD
                                 <a href="../cp_preguntas/frm_preguntas.php" class="list-group-item"><i class="bi bi-question-circle-fill me-2"></i>Preguntas</a>
+=======
+                                <a href="../cp_usuarios/frm_usuarios.php" class="list-group-item"><i class="bi bi-people-fill me-2"></i>Usuarios</a>
+>>>>>>> c6d56a403a86cb00d4eaac25a44ce3d0df69aa6f
                             </div>
                         </div>
                     </div>
@@ -39,7 +43,7 @@
         </button>
         <?php endif ?>
         </div>
-        <div class="d-flex">
+        <div class="d-flex btn-group">
             <?php if(!isset($_SESSION['auth'])): ?>
             <a href="../cp_login/registro.php" class="btn btn-secondary" type="button" >
                 Registrarse

@@ -7,7 +7,7 @@ const registro = async (e) => {
         return;
     }
     const body = new FormData(formulario);
-    const url = "../API/usuarios/registro.php";
+    const url = "../API/usuarios/reestablecer.php";
     const config = {
         method : 'POST',
         body
@@ -28,13 +28,12 @@ const registro = async (e) => {
             console.log(error);
             alertToast('error','Ocurrió un error');
 
-        }else if ( data.mensaje ){
+        }else if ( data.token ){
 
-            alertToast('info',data.mensaje);
-        }else{
+            alertToast('info',data.token);
+        }else if( data.exito ){
             Swal.fire({
                 title: 'REGISTRO CREADO',
-                text: `${data.user.GRADO} ${data.user.NOMBRE} - ${data.user.CATALOGO} - ${data.user.DEPENDENCIA}`,
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Entendido',
