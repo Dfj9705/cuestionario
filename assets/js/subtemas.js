@@ -121,7 +121,7 @@ const generarTabla = async(e) => {
 
 const traerInformacion = (data) => {
     formulario.id.value = data.id;
-    formulario.tema.value = data.tema;
+    formulario.tema.value = data.id_tema;
     formulario.nombre.value = data.nombre;
     buttonModificar.parentElement.style.display = ''
     buttonModificar.disabled = false
