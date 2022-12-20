@@ -33,6 +33,34 @@ include_once '../includes/header.php'; ?>
         </div>
     
     </div>
+    <div class="modal fade" id="modalCorreo" tabindex="-1" role="dialog" aria-labelledby="infomodalCorreo" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h3 class="modal-title " id="infomodalCorreo">Cambio de correo</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container-fluid " >
+                    <div class="row">
+                        <form class="col" id="formCorreo">
+                            <input type="text" id="id" name="id">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="correo">Correo nuevo</label>
+                                    <input type="email" name="correo" id="correo" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" form="formCorreo" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php include_once '../includes/footer.php' ?>
 <script src="../assets/js/usuarios.js"></script>
     

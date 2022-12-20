@@ -1,3 +1,5 @@
+const formulario = document.querySelector('#formCorreo');
+const modalCorreo = new bootstrap.Modal(document.getElementById('modalCorreo'))
 const generarTabla = async(e) => {
     const url = "../API/usuarios/usuarios.php";
     const config = {
@@ -21,7 +23,7 @@ const generarTabla = async(e) => {
                     "render" : data => `
                     <div class='btn-group'>
                         <button class='btn btn-info' onclick='generartoken(${data})'><i class="bi bi-pencil-square me-2"></i>Generar enlace</button>
-                        <button class='btn btn-warning' onclick='confirmarBorrado(${data}, 1)'><i class="bi bi-envelope me-2"></i>Cambiar correo</button>
+                        <button class='btn btn-warning' onclick='asignarId(${data})' data-bs-target='#modalCorreo' data-bs-toggle='modal'><i class="bi bi-envelope me-2"></i>Cambiar correo</button>
                         <button class='btn btn-danger' onclick='confirmarBorrado(${data}, 1)'><i class="bi bi-trash me-2"></i>Desactivar</button>
                     </div>
                         `,
@@ -72,4 +74,72 @@ const generartoken = async ( id ) => {
     }
 }
 
+const asignarId = id => {
+    document.querySelector('#id').value = id;
+}
+
+const cambiarCorreo = async (e) => {
+    e && e.preventDefault();
+    if(!validarFormulario(formulario)){
+        alertToast('warning', 'Debe llenar todos los campos');
+        return;
+    }
+    const body = new FormData(formulario);
+    const url = "../API/usuarios/correo.php";
+    const config = {
+        method : 'POST',
+        body
+    }
+
+    try {
+        const response = await fetch(url,config);
+        const data = await response.json();
+        console.log(data);
+        if(data.mensaje){
+            alertToast('warning', data.mensaje );
+
+        }else if (data.resultado){
+            alertToast('success', 'CORREO ACTUALIZADO' );
+            limpiar(formulario);
+            generarTabla();
+            modalCorreo.hide();
+        }else{
+            alertToast('error','Ocurrió un error');
+
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const eliminarRegistro = async id => {
+    // console.log(id);
+
+    const body = new FormData();
+    body.append('id', id )
+    const url = "../API/usuarios/desactivar.php";
+    const config = {
+        method : 'POST',
+        body
+    }
+
+    try {
+        const response = await fetch(url,config);
+        const data = await response.json();
+        console.log(data);
+        if (data.resultado){
+            alertToast('success', 'USUARIO DESACTIVADO' );
+            generarTabla();
+        }else{
+            alertToast('error','Ocurrió un error');
+
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 generarTabla();
+formulario.addEventListener('submit', cambiarCorreo);

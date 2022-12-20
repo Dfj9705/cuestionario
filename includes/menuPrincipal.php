@@ -19,7 +19,10 @@
             
                                 <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
                                 <a href="../cp_preguntas/frm_preguntas.php" class="list-group-item"><i class="bi bi-question-circle-fill me-2"></i>Preguntas</a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08a8135da9b9bbc5b0efa00c779bf090589e650c
                                 <a href="../cp_usuarios/frm_usuarios.php" class="list-group-item"><i class="bi bi-people-fill me-2"></i>Usuarios</a>
                             </div>
                         </div>

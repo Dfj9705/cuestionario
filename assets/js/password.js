@@ -33,7 +33,7 @@ const registro = async (e) => {
             alertToast('info',data.token);
         }else if( data.exito ){
             Swal.fire({
-                title: 'REGISTRO CREADO',
+                title: 'CONTRASEÑA ACTUALIZADA',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Entendido',
