@@ -16,11 +16,12 @@
                         <div class="accordion-body">
                             <div class="list-group">
                                 <a href="../cp_evaluaciones/inicio.php" class="list-group-item"><i class="bi bi-file-post me-2"></i>Iniciar evaluación</a>
-                                <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-card-checklist me-2"></i>Ver resultados</a>
+                                <a href="../cp_evaluaciones/resultados.php" class="list-group-item"><i class="bi bi-card-checklist me-2"></i>Ver resultados</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php if($_SESSION['rol'] == 2 ) :?>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="itemtitle2">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2" aria-expanded="false" aria-controls="item1">
@@ -39,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-               
+                <?php endif ?>
             </div>
         </div>
 

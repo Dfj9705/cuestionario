@@ -22,7 +22,10 @@ include_once '../includes/header.php'; ?>
     </div>
     <div class="row justify-content-center mb-3">
         <div class="col-lg-8">
-            <?php if($_SESSION['modulo'] > 1) : ?>
+            <?php if($_SESSION['modulo'] > 4 ) : ?>
+                <p class="text-success h1 text-center">Ha finalizado las evaluaciones </p>
+                <button class="btn btn-primary w-100" id="btnInicio">Ver resultados</button>
+            <?php elseif($_SESSION['modulo'] > 1): ?>
                 <button class="btn btn-warning w-100" id="btnInicio">Continuar con el módulo <?= $_SESSION['modulo']?></button>
             <?php else : ?>
                 <button class="btn btn-primary w-100" id="btnInicio">Iniciar Evaluación</button>

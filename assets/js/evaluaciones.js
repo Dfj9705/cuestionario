@@ -5,6 +5,8 @@ const buttonFinalizar = document.querySelector('#buttonFinalizar')
 const buttonSiguiente = document.querySelector('#buttonSiguiente')
 const buttonAnterior = document.querySelector('#buttonAnterior')
 const formCarousel = document.querySelector('#formCarousel');
+const loaderPreguntas = document.querySelector('#loaderPreguntas');
+
 const carousel = new bootstrap.Carousel(carouselElement, {
   interval: 1000,
   ride: true,
@@ -34,6 +36,7 @@ const getPreguntas = async () => {
         // <div class="carousel-item active">
         //     hola 1
         // </div>
+        loaderPreguntas.style.display = 'none'
         formCarousel.innerHTML = '';
         const fragment = document.createDocumentFragment();
         let contador = 1;
@@ -127,7 +130,7 @@ const finalizarModulo = async e => {
                 if (result.value) {
                     const response = await fetch(url,config);
                     const data = await response.json();
-            
+                    console.log(data);
                     if(data.mensaje){
                         alertToast('error', data.mensaje)
                     }else if( data.error){
@@ -147,9 +150,11 @@ const finalizarModulo = async e => {
                             if(result.value){
                                 location.reload();
                             }else{
-                                location.href = '../cp_menu/menu.php';
+                                location.href = 'resultados.php';
                             }
                         })
+                    }else{
+                        alertToast('error', 'OCURRIÓ UN ERROR')
                     }
                     
                     

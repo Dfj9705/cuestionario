@@ -11,7 +11,9 @@
                 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 
             } catch (PDOException $e) {
-                echo "ERROR DE CONEXION BD";
+                echo json_encode([
+					"error" => "ERROR DE CONEXION BD"
+				]);
                 exit;
             }
             // $conexion = new PDO("informix:host=srvlnx; service=1526; database=MDN; server=srvlnx_tcp; protocol=onsoctcp; EnableScrollableCursors=1;", $user, $pass);

@@ -8,6 +8,7 @@ class ClsUser extends ClsConex{
     public $catalogo;
     public $rol;
     public $token;
+    public $diploma;
 
 
     public function __construct($args = [])
@@ -18,6 +19,7 @@ class ClsUser extends ClsConex{
         $this->catalogo = $args['catalogo'] ?: '';
         $this->rol = $args['rol'] ?: '';
         $this->token = $args['token'] ?: '';
+        $this->diploma = $args['diploma'] ?: '';
     }
 
     public function registrar(){
@@ -33,7 +35,7 @@ class ClsUser extends ClsConex{
     }
 
     public function buscarUsuario(){
-        $sql = "SELECT * from ciber_usuarios inner join mper on per_catalogo = usu_catalogo inner join grados on per_grado = gra_codigo where usu_correo = '$this->correo' and usu_situacion = 1 ";
+        $sql = "SELECT * from ciber_usuarios inner join mper on per_catalogo = usu_catalogo inner join grados on per_grado = gra_codigo inner join armas on per_arma = arm_codigo where usu_correo = '$this->correo' and usu_situacion = 1 ";
         $resultado = $this->exec_query($sql);
         return $resultado;
     }
@@ -50,8 +52,20 @@ class ClsUser extends ClsConex{
         return $resultado;
     }
 
+    public function updateDiploma(){
+        $sql = "UPDATE ciber_usuarios set usu_diploma = '$this->diploma' where usu_id = $this->id ";
+        $resultado = $this->exec_sql($sql);
+        return $resultado;
+    }
+
     public function getUserToken(){
         $sql = "SELECT * from ciber_usuarios where usu_token = '$this->token' ";
+        $resultado = $this->exec_query($sql);
+        return $resultado;
+    }
+
+    public function getUserDiploma(){
+        $sql = "SELECT * from ciber_usuarios inner join mper on usu_catalogo = per_catalogo inner join grados on per_grado = gra_codigo where usu_diploma = '$this->diploma' ";
         $resultado = $this->exec_query($sql);
         return $resultado;
     }
@@ -63,7 +77,13 @@ class ClsUser extends ClsConex{
     }
 
     public function deleteToken(){
-        $sql = "UPDATE ciber_usuarios set usu_token = '' where usu_id = $this->id ";
+        $sql = "UPDATE ciber_usuarios set usu_token = null where usu_id = $this->id ";
+        $resultado = $this->exec_sql($sql);
+        return $resultado;
+    }
+
+    public function deleteDiploma(){
+        $sql = "UPDATE ciber_usuarios set usu_diploma = null where usu_id = $this->id ";
         $resultado = $this->exec_sql($sql);
         return $resultado;
     }

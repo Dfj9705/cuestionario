@@ -46,5 +46,92 @@ class ClsEvaluaciones extends ClsConex{
         return $resultado;
     }
 
+    public function getResultados(){
+        $sql = "SELECT tema_nombre, tema_id,
+        (
+            select count(*) from ciber_preguntas
+            inner join ciber_subtemas on pregunta_subtema = subtema_id
+            where subtema_tema = tema_id
+            and pregunta_situacion = 1
+        ) as preguntas,
+        (
+            select count(*) from ciber_detalle_evaluaciones
+            inner join ciber_evaluaciones on detalle_evaluacion = evaluacion_id
+            inner join ciber_respuestas on detalle_respuesta = respuesta_id
+            inner join ciber_preguntas on respuesta_pregunta = pregunta_id
+            inner join ciber_subtemas on pregunta_subtema = subtema_id
+            where subtema_tema = tema_id
+            and respuesta_correcta = 1
+            and detalle_situacion = 1
+            and evaluacion_usuario = $this->usuario
+        ) as correctas,
+        (
+            select count(*) from ciber_detalle_evaluaciones
+            inner join ciber_evaluaciones on detalle_evaluacion = evaluacion_id
+            inner join ciber_respuestas on detalle_respuesta = respuesta_id
+            inner join ciber_preguntas on respuesta_pregunta = pregunta_id
+            inner join ciber_subtemas on pregunta_subtema = subtema_id
+            where subtema_tema = tema_id
+            and respuesta_correcta = 0
+            and detalle_situacion = 1
+            and evaluacion_usuario = $this->usuario
+        ) as incorrectas
+        
+        
+        
+        from ciber_temas where tema_situacion = 1
+        ";
+        $resultado = $this->exec_query($sql);
+        return $resultado;
+    }
+
+    public function getDetalle(){
+        $sql = "SELECT pregunta_id, pregunta_descripcion,
+        (
+            select respuesta_id from ciber_respuestas where respuesta_pregunta = pregunta_id and respuesta_correcta = 1 
+        ) as correcta,
+        (
+            select detalle_respuesta from ciber_detalle_evaluaciones 
+            inner join ciber_evaluaciones on detalle_evaluacion = evaluacion_id
+            inner join ciber_respuestas on detalle_respuesta = respuesta_id
+            where evaluacion_usuario = $this->usuario 
+            and detalle_situacion = 1
+            and respuesta_pregunta = pregunta_id
+        
+        ) as seleccionada
+        
+        from ciber_preguntas inner join ciber_subtemas on pregunta_subtema = subtema_id where subtema_tema = $this->tema";
+        $resultado = $this->exec_query($sql);
+
+        return $resultado;
+    }
+
+    public function deleteDetalleRepetir(){
+        $sql = "UPDATE ciber_detalle_evaluaciones set detalle_situacion = 0 where detalle_id in (
+            select detalle_id from ciber_detalle_evaluaciones 
+            inner join ciber_evaluaciones on detalle_evaluacion = evaluacion_id 
+            inner join ciber_respuestas on detalle_respuesta = respuesta_id
+            inner join ciber_preguntas on respuesta_pregunta = pregunta_id
+            inner join ciber_subtemas on pregunta_subtema = subtema_id
+            where evaluacion_usuario = $this->usuario and subtema_tema = $this->tema
+        ) ";
+        $resultado = $this->exec_sql($sql);
+
+        return $resultado;
+    }
+
+    function getCantidadRespuestasCorrectas(){
+        $sql = "SELECT count(*) as correctas from ciber_evaluaciones inner join ciber_detalle_evaluaciones on detalle_evaluacion = evaluacion_id inner join ciber_respuestas on detalle_respuesta = respuesta_id where evaluacion_usuario = $this->usuario and detalle_situacion = 1 and respuesta_correcta = 1";
+        $resultado = $this->exec_query($sql);
+
+        return $resultado[0]['CORRECTAS'];
+    }
+
+    function getCantidadRespuestasIncorrectas(){
+        $sql = "SELECT count(*) as incorrectas from ciber_evaluaciones inner join ciber_detalle_evaluaciones on detalle_evaluacion = evaluacion_id inner join ciber_respuestas on detalle_respuesta = respuesta_id where evaluacion_usuario = $this->usuario and detalle_situacion = 1 and respuesta_correcta = 0";
+        $resultado = $this->exec_query($sql);
+
+        return $resultado[0]['INCORRECTAS'];
+    }
     
 }

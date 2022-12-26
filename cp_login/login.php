@@ -9,6 +9,11 @@ include_once '../includes/header.php'; ?>
         
         <div class="row justify-content-center mb-3">
             <form class="col-lg-4 border rounded p-3 bg-light">
+                <div class="row justify-content-center" >
+                    <div class="col-4">
+                        <img width="100%" src="../assets/img/escudo.png" alt="escudo-ciber">
+                    </div>
+                </div>
                 <div class="row text-center mb-5" >
                     <div class="col-12">
                         <h1>INICIO DE SESIÓN</h1>

@@ -13,8 +13,12 @@ const getModulos = async () => {
         
         if(data.MODULO){
             // console.log(data.MODULO);
+            if(data.MODULO > 4){
+                location.href = `resultados.php`
+            }else{
+                location.href = `evaluacion.php`
 
-            location.href = `evaluacion.php`
+            }
 
         }else{
             alertToast('error', 'ERROR AL INICIAR EVALUACIÓN');

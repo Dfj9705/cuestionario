@@ -18,13 +18,19 @@ try {
             $resultados[] = $ClsDetalle->guardarRespuesta();
             // echo $input;
         }
-
         if(!array_search(false,$resultados)){
-            $_SESSION['modulo']++;
             $ClsEvaluaciones = new ClsEvaluaciones([
                 "id" => $evaluacion,
-                "modulo" => $_SESSION['modulo']
+                'usuario' => $_SESSION['id'],
             ]);
+            $moduloGuardado =  $ClsEvaluaciones->getEvaluacion()[0]['MODULO'];
+            
+            if($moduloGuardado == 5){
+                $_SESSION['modulo'] = $moduloGuardado;
+            }else{
+                $_SESSION['modulo']++;
+            }
+            $ClsEvaluaciones->modulo = $_SESSION['modulo'];
             $ClsEvaluaciones->updateModulo();
             echo json_encode([
                 "resultado" => "EVALUACIÓN GUARDADA"

@@ -4,6 +4,10 @@ if(!$_SESSION['auth']){
     header('location: ../cp_menu/menu.php');
 }
 $modulo = $_SESSION['modulo'];
+
+if($modulo > 4){
+    header('location: resultados.php');
+}
 include_once '../includes/header.php'; ?>
 
 
@@ -26,7 +30,7 @@ include_once '../includes/header.php'; ?>
             <div class="modal-body container-fluid " >
                 <div id="carouselEvaluacion" class="carousel slide" data-bs-ride="carousel">
                     <form class="carousel-inner" id="formCarousel">
-
+                        <p id="loaderPreguntas" class="text-primary">Obteniendo preguntas, espere un momento<span class="spinner-border spinner-border-sm ms-2"></span></p>
                     </form>
                 </div>
                     
