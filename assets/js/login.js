@@ -16,7 +16,7 @@ const registro = async (e) => {
     try {
         const response = await fetch(url,config);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         
         if(data.mensaje){
             alertToast('warning', data.mensaje);

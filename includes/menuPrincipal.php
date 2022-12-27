@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header bg-dark text-white">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU</h5>
+        <a href="../cp_menu/menu.php" class="btn btn-dark offcanvas-title h5 lead" id="offcanvasExampleLabel">CIBERSEGURIDAD</a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -9,10 +9,26 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="itemtitle1">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item1" aria-expanded="false" aria-controls="item1">
-                            <i class="bi bi-gear me-2"></i>Administración
+                            <i class="bi bi-ui-checks me-2"></i>Evaluaciones
                         </button>
                     </h2>
                     <div id="item1" class="accordion-collapse collapse" aria-labelledby="itemtitle1" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="list-group">
+                                <a href="../cp_evaluaciones/inicio.php" class="list-group-item"><i class="bi bi-file-post me-2"></i>Iniciar evaluación</a>
+                                <a href="../cp_evaluaciones/resultados.php" class="list-group-item"><i class="bi bi-card-checklist me-2"></i>Ver resultados</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php if($_SESSION['rol'] == 2 ) :?>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="itemtitle2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2" aria-expanded="false" aria-controls="item1">
+                            <i class="bi bi-gear me-2"></i>Administración
+                        </button>
+                    </h2>
+                    <div id="item2" class="accordion-collapse collapse" aria-labelledby="itemtitle2" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="list-group">
                                 <a href="../cp_temas/frm_temas.php" class="list-group-item"><i class="bi bi-list-ol me-2"></i>Temas</a>
@@ -26,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-               
+                <?php endif ?>
             </div>
         </div>
 

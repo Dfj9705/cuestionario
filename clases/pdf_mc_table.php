@@ -160,19 +160,19 @@ function RotatedText($x,$y,$txt,$angle)
 
 function Header()
     {
-        $fechaactual = date("d/m/Y h:i:s");
-        $this->SetFont('Arial','B',14);
-        $this->SetTextColor(206,36,0);
-        $this->Cell(0,10,utf8_decode('RESERVADO'),0,1,'C');
-        $this->SetTextColor(0,0,0);
-        // $this->Cell(80);
-        $this->Cell(0,5,utf8_decode('DIRECCIÓN DE RELACIONES CIVILES Y MILITARES'),0,1,'C');
-        // $this->Cell(80);
-        $this->SetFont('Arial','',8);
-        // $this->Cell(0,5,utf8_decode("GENERADO POR: ".$_SESSION["nombreUser"]),0,1,'C');
-        // $this->Cell(80);
-        $this->Cell(0,5,utf8_decode("FECHA DE GENERACIÓN: ".$fechaactual),0,1,'C');
-        $this->Ln(2);
+        // $fechaactual = date("d/m/Y h:i:s");
+        // $this->SetFont('Arial','B',14);
+        // $this->SetTextColor(206,36,0);
+        // $this->Cell(0,10,utf8_decode('RESERVADO'),0,1,'C');
+        // $this->SetTextColor(0,0,0);
+        // // $this->Cell(80);
+        // $this->Cell(0,5,utf8_decode('DIRECCIÓN DE RELACIONES CIVILES Y MILITARES'),0,1,'C');
+        // // $this->Cell(80);
+        // $this->SetFont('Arial','',8);
+        // // $this->Cell(0,5,utf8_decode("GENERADO POR: ".$_SESSION["nombreUser"]),0,1,'C');
+        // // $this->Cell(80);
+        // $this->Cell(0,5,utf8_decode("FECHA DE GENERACIÓN: ".$fechaactual),0,1,'C');
+        // $this->Ln(2);
     
     }
 
@@ -184,17 +184,17 @@ function Header()
     function Footer()
     {
         
-        $this->SetY(-25);
+        // $this->SetY(-25);
 
        
-        $this->SetFont('Arial','B',8);
+        // $this->SetFont('Arial','B',8);
        
-        // $this->Cell(80);
-        $this->Cell(0,10,utf8_decode('HOJA ').$this->PageNo().' DE {nb}',0,1,'C');
-        $this->SetFont('Arial','B',16);
-        // $this->Cell(80);
-        $this->SetTextColor(206,36,0);
-        $this->Cell(0,10,utf8_decode('RESERVADO'),0,1,'C');
+        // // $this->Cell(80);
+        // $this->Cell(0,10,utf8_decode('HOJA ').$this->PageNo().' DE {nb}',0,1,'C');
+        // $this->SetFont('Arial','B',16);
+        // // $this->Cell(80);
+        // $this->SetTextColor(206,36,0);
+        // $this->Cell(0,10,utf8_decode('RESERVADO'),0,1,'C');
     }
 }
 ?>

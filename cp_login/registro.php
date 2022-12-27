@@ -9,7 +9,12 @@ include_once '../includes/header.php'; ?>
         
         <div class="row justify-content-center mb-3">
             <form class="col-lg-4 border rounded p-3 bg-light">
-                <div class="row mb-3 text-center mb-5" >
+                <div class="row justify-content-center" >
+                    <div class="col-4">
+                        <img width="100%" src="../assets/img/escudo.png" alt="escudo-ciber">
+                    </div>
+                </div>
+                <div class="row mb-3 text-center" >
                     <div class="col-12">
                         <h1>REGISTRO DE USUARIOS</h1>
                     </div>
@@ -18,6 +23,9 @@ include_once '../includes/header.php'; ?>
                     <div class="col-12">
                         <label for="correo">Correo Electrónico</label>
                         <input type="email" name="correo" id="correo" class="form-control">
+                        <div class="form-text text-start">
+                            Debe colocar una dirección de correo existente.
+                        </div>
                         <div class="invalid-feedback text-start">
                             Ingrese un correo válido.
                         </div>
