@@ -14,10 +14,10 @@ try {
 
     $ClsRespuestas= new ClsRespuestas($_POST);
     $ClsRespuestas->correcta = $_POST['correcta'];
-    $resultado = $ClsRespuestas->guardarRespuetas();
 
-    // echo json_encode($_POST);
-    // exit;
+    $resultado = $ClsRespuestas->modificarRespuestas();
+
+
    
     echo json_encode([
         "resultado" => $resultado,

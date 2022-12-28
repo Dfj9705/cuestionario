@@ -62,7 +62,7 @@ const guardarPreguntas = async (e) => {
         if(data.resultado){
             alertToast('success','Información guardada');
             limpiar(formulario);
-            // generarTabla();
+            generarTabla();
         }else{
             alertToast('error','Ocurrió un error');
 
@@ -74,40 +74,7 @@ const guardarPreguntas = async (e) => {
 }
 
 
-const generarTabla = async(e) => {
-    const url = "../API/preguntas/buscar.php";
-    const config = {
-        method : 'GET'
-    }
-    try {
-        const response = await fetch(url,config);
-        const data = await response.json();
-        $("#tablaTemas").DataTable().destroy();
-        let tabla = $("#tablaTemas").DataTable({
-            language : lenguaje,
-            data : data,
-            columns : [
-                {data : "contador", "width" : "5%"},
-                {data : "subtema"},
-                {data : "descripcion"},
-                {
-                    data : "id",
-                    "render" : (data , type, row, meta) => `<button class='btn btn-warning' onclick='traerInformacion(${JSON.stringify(row)})'><i class="bi bi-pencil-square me-2"></i>Editar</button>`,
-                    "width" : "20%"
-                },
-                {
-                    data : "id",
-                    "render" : data => `<button class='btn btn-danger' onclick='confirmarBorrado(${data}, 1)'><i class="bi bi-trash me-2"></i>Eliminar</button>`,
-                    "width" : "20%"
-                },
-            ],
-    
-        })
-                
-    } catch (error) {
-        console.log(error);
-    }
-}
+
 
 
 const eliminarRegistro = async (id) => {
@@ -190,6 +157,44 @@ const modificarPregunta = async (e) => {
     }
 }
 
+
+
+const generarTabla = async(e) => {
+    const url = "../API/preguntas/buscar.php";
+    const config = {
+        method : 'GET'
+    }
+    try {
+        const response = await fetch(url,config);
+        const data = await response.json();
+        // console.log(data);
+        $("#tablaPreguntas").DataTable().destroy();
+        let tabla = $("#tablaPreguntas").DataTable({
+            language : lenguaje,
+            data : data,
+            columns : [
+                {data : "contador", "width" : "5%"},
+                {data : "descripcion"},
+                {data : "subtema"},
+                {
+                    data : "id",
+                    "render" : (data , type, row, meta) => `<button class='btn btn-warning' onclick='traerInformacion(${JSON.stringify(row)})'><i class="bi bi-pencil-square me-2"></i>Editar</button>`,
+                    "width" : "20%"
+                },
+                {
+                    data : "id",
+                    "render" : data => `<button class='btn btn-danger' onclick='confirmarBorrado(${data}, 1)'><i class="bi bi-trash me-2"></i>Eliminar</button>`,
+                    "width" : "20%"
+                },
+            ],
+    
+        })
+        
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 iniciarModulo()
