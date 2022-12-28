@@ -21,8 +21,8 @@ class ClsPreguntas extends ClsConex{
     }
 
     public function getPreguntas(){
-        $sql = "SELECT pregunta_descripcion as descripcion, subtema_nombre as subtema, pregunta_id as id from ciber_preguntas inner join   ciber_subtemas on pregunta_subtema =subtema_id
-         where pregunta_situacion = 1
+        $sql = "SELECT pregunta_descripcion as descripcion, subtema_nombre as subtema, pregunta_id as id, pregunta_subtema as id_subtema from ciber_preguntas inner join   ciber_subtemas on pregunta_subtema =subtema_id
+        where pregunta_situacion = 1
         ";
         $resultado = $this->exec_query($sql);
         return $resultado;

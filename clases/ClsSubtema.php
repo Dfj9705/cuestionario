@@ -21,7 +21,7 @@ class ClsSubtemas extends ClsConex{
     }
 
     public function getSubTemas(){
-        $sql = "SELECT subtema_nombre as nombre, tema_nombre as tema, subtema_id as id from ciber_subtemas inner join   ciber_temas on subtema_tema =tema_id where subtema_situacion = 1
+        $sql = "SELECT subtema_nombre as nombre, tema_nombre as tema, subtema_id as id, tema_id as id_tema from ciber_subtemas inner join   ciber_temas on subtema_tema =tema_id where subtema_situacion = 1
         ";
         $resultado = $this->exec_query($sql);
         return $resultado;
