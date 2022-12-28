@@ -41,7 +41,7 @@ class ClsEvaluaciones extends ClsConex{
     }
 
     public function getRespuestasPregunta($idPregunta){
-        $sql = "SELECT respuesta_descripcion as respuesta, respuesta_id as id, respuesta_correcta as correcta  from ciber_respuestas where respuesta_pregunta = $idPregunta";
+        $sql = "SELECT respuesta_descripcion as respuesta, respuesta_id as id, respuesta_correcta as correcta  from ciber_respuestas where respuesta_pregunta = $idPregunta and respuesta_situacion = 1";
         $resultado = $this->exec_query($sql);
         return $resultado;
     }

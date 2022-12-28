@@ -9,6 +9,15 @@ try {
         // echo json_encode($_POST);
 
         $evaluacion = $_SESSION['evaluacion'];
+        $ClsEvaluaciones = new ClsEvaluaciones([
+            "id" => $evaluacion,
+            'usuario' => $_SESSION['id'],
+            'tema' => $_SESSION['tema'],
+        ]);
+        if($_SESSION['tema'] != ''){
+            $ClsEvaluaciones->deleteDetalleRepetir();
+            $_SESSION['tema'] = '';
+        }
         $resultados = [];
         foreach ($_POST as $key => $input) {
             $respuesta = $input;
@@ -21,14 +30,11 @@ try {
             // echo $input;
         }
         if(!array_search(false,$resultados)){
-            $ClsEvaluaciones = new ClsEvaluaciones([
-                "id" => $evaluacion,
-                'usuario' => $_SESSION['id'],
-            ]);
+            
             $moduloGuardado =  $ClsEvaluaciones->getEvaluacion()[0]['MODULO'];
             
-            if($moduloGuardado == 5){
-                $_SESSION['modulo'] = $moduloGuardado;
+            if($moduloGuardado >= 5){
+                $_SESSION['modulo'] = 5;
             }else{
                 $_SESSION['modulo']++;
             }

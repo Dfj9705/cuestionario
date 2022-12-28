@@ -7,8 +7,9 @@ validarIngresoApi();
 try {
     $modulo = $_GET['modulo'];
     $tema = $_GET['tema'];
+    $_SESSION['tema'] = $tema;
     $ClsEvaluaciones = new ClsEvaluaciones([ 'usuario' => $_SESSION['id'] , 'tema' => $tema]);   
-    $ClsEvaluaciones->deleteDetalleRepetir();
+    // $ClsEvaluaciones->deleteDetalleRepetir();
     // if(count($ClsEvaluaciones->getEvaluacion()) < 1 ){
     //     $ClsEvaluaciones->iniciarEvaluacion();
     // }
