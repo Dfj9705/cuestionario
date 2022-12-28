@@ -1,7 +1,9 @@
 <?php 
 session_start();
+include_once '../includes/header.php'; 
 validarIngreso(2);
-include_once '../includes/header.php'; ?>
+
+?>
 
     <div class="container-fluid mt-4 " style="min-height: 80vh;">
         <div class="row justify-content-center">
