@@ -1,7 +1,7 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+validarIngresoApi(2);   
 try {
     $_POST['nombre'] = trim(mb_strtoupper($_POST['nombre'], 'UTF-8'));
     $ClsTipos = new ClsTipos($_POST);

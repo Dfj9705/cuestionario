@@ -2,9 +2,7 @@
 
 <?php
 
-    if(!$_SESSION['auth'] || $_SESSION['rol'] != 2){
-        header('location: ../cp_menu/menu.php');
-    }
+    validarIngreso(2);
 
     include_once '../html_fns.php';
     $codigo = $_GET['id'];

@@ -1,7 +1,9 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+
+validarIngresoApi();
+
 try {
     $ClsEvaluaciones = new ClsEvaluaciones([ 'tema' => $_SESSION['modulo'] ]);   
 

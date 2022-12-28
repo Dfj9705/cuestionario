@@ -1,7 +1,7 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-
+validarIngresoApi(2);
 try {
     $ClsUser = new ClsUser($_POST);
 

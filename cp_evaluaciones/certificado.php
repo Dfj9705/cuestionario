@@ -3,9 +3,7 @@
     include_once '../clases/pdf_mc_table.php';
     setlocale(LC_ALL, 'es_ES');
     session_start();
-    if(!$_SESSION['auth']){
-        header('location: ../cp_menu/menu.php');
-    }
+    validarIngreso();
     $ClsUser = new ClsUser($_SESSION);
     $ClsEvaluaciones = new ClsEvaluaciones([ 'usuario' => $_SESSION['id']]);
     $respuestasCorrectas = $ClsEvaluaciones->getCantidadRespuestasCorrectas();

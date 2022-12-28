@@ -18,7 +18,13 @@ try {
             $_SESSION['id'] = $registro[0]['USU_ID'];
             $_SESSION['nombre'] = trim($registro[0]['GRA_DESC_CT']) .  " " . trim($registro[0]['PER_NOM1']) . " " . trim($registro[0]['PER_APE1']) ;
             $_SESSION['auth'] = true;
+            $ClsEvaluaciones = new ClsEvaluaciones([ 'usuario' => $_SESSION['id']]); 
+            $dataEvaluacion=$ClsEvaluaciones->getEvaluacion();
+            if(count($dataEvaluacion) > 0){
+                $_SESSION['evaluacion'] = $dataEvaluacion[0]['ID'];  
+                $_SESSION['modulo'] = $dataEvaluacion [0]['MODULO'];
 
+            }
             echo json_encode([
                 "exito" => "BIENVENIDO " . $_SESSION['nombre']
             ]);

@@ -1,7 +1,7 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+validarIngresoApi(2);   
 try {
     $ClsTemas = new ClsTemas($_POST);
     $resultado = $ClsTemas->eliminar();

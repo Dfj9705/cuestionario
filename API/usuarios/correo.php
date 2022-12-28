@@ -2,7 +2,7 @@
 
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-
+validarIngresoApi(2);
 try {
     $validaciones = [
         "id" => FILTER_VALIDATE_INT,
