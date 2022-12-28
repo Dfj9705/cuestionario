@@ -1,7 +1,9 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+
+validarIngresoApi();
+
 try {
     $id = $_GET['id'];
     $ClsEvaluaciones = new ClsEvaluaciones([ 'usuario' => $_SESSION['id'] , 'tema' => $id]);   

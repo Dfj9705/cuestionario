@@ -1,9 +1,9 @@
 <?php 
 session_start();
-if(!$_SESSION['auth']){
-    header('location: ../cp_menu/menu.php');
-}
-include_once '../includes/header.php'; ?>
+include_once '../includes/header.php'; 
+validarIngreso();
+
+?>
 <div class="container py-3 border mt-3 rounded bg-light">
     <div class="row justify-content-center">
         <div class="col-lg-8">

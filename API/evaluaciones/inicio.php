@@ -1,7 +1,7 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+validarIngresoApi();   
 try {
     $ClsEvaluaciones = new ClsEvaluaciones([ 'usuario' => $_SESSION['id']]);   
 

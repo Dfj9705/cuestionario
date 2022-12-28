@@ -16,7 +16,9 @@
                         <div class="accordion-body">
                             <div class="list-group">
                                 <a href="../cp_evaluaciones/inicio.php" class="list-group-item"><i class="bi bi-file-post me-2"></i>Iniciar evaluación</a>
-                                <a href="../cp_evaluaciones/resultados.php" class="list-group-item"><i class="bi bi-card-checklist me-2"></i>Ver resultados</a>
+                                <?php if(isset($_SESSION['evaluacion'])) : ?>    
+                                    <a href="../cp_evaluaciones/resultados.php" class="list-group-item"><i class="bi bi-card-checklist me-2"></i>Ver resultados</a>
+                                <?php endif?>
                             </div>
                         </div>
                     </div>
@@ -36,6 +38,7 @@
                                 <a href="../cp_subtemas/frm_subtemas.php" class="list-group-item"><i class="bi bi-list-nested me-2"></i>Subtemas</a>
                                 <a href="../cp_preguntas/frm_preguntas.php" class="list-group-item"><i class="bi bi-question-circle-fill me-2"></i>Preguntas</a>
                                 <a href="../cp_usuarios/frm_usuarios.php" class="list-group-item"><i class="bi bi-people-fill me-2"></i>Usuarios</a>
+                                <a href="../cp_estadisticas/frm_estadisticas.php" class="list-group-item"><i class="bi bi-graph-up-arrow me-2"></i>Estadísticas</a>
                             </div>
                         </div>
                     </div>

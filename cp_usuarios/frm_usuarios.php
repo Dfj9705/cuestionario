@@ -1,8 +1,6 @@
 <?php 
 session_start();
-if(!$_SESSION['auth']){
-    header('location: ../cp_menu/menu.php');
-}
+validarIngreso(2);
 include_once '../includes/header.php'; ?>
 
     <div class="container-fluid mt-4 " style="min-height: 80vh;">

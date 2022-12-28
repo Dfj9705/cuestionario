@@ -1,14 +1,15 @@
 <?php 
+
 session_start();
-if(!$_SESSION['auth']){
-    header('location: ../cp_menu/menu.php');
-}
+include_once '../includes/header.php'; 
+validarIngreso();
 $modulo = $_SESSION['modulo'];
 
 if($modulo > 4){
     header('location: resultados.php');
 }
-include_once '../includes/header.php'; ?>
+
+?>
 
 
 <?php if(file_exists("modulo${modulo}.php")) :?>

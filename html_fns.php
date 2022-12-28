@@ -6,6 +6,7 @@
    	include_once 'clases/ClsPreguntas.php';
    	include_once 'clases/ClsEvaluaciones.php';
    	include_once 'clases/ClsDetalle.php';
+   	include_once 'clases/ClsEstadisticas.php';
 
 
 	function formatearGrado ($grado, $codigogrado , $arma, $codigoarma){
@@ -42,4 +43,39 @@
         return $gradoArma;
     }
 		
+
+    function validarIngresoApi($tipo = 1){
+
+        if($tipo == 1){
+            if(!$_SESSION['auth']){
+                echo json_encode([
+                    "error" => "NO ESTA AUTENTICADO"
+                ]);
+                exit;
+            }
+
+        }else if($tipo == 2){
+            if(!$_SESSION['auth'] || $_SESSION['rol'] != 2){
+                echo json_encode([
+                    "error" => "NO ESTA AUTORIZADO"
+                ]);
+                exit;
+            }
+        }
+
+    }
+    function validarIngreso($tipo = 1){
+
+        if($tipo == 1){
+            if(!$_SESSION['auth']){
+                header('location: ../cp_menu/menu.php');
+            }
+
+        }else if($tipo == 2){
+            if(!$_SESSION['auth'] || $_SESSION['rol'] != 2){
+                header('location: ../cp_menu/menu.php');
+            }
+        }
+
+    }
 ?>

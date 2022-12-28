@@ -1,7 +1,7 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-
+validarIngresoApi(2);
 try {
     $_POST['tema'] = trim(mb_strtoupper($_POST['tema'], 'UTF-8'));
     $_POST['nombre'] = trim(mb_strtoupper($_POST['nombre'], 'UTF-8'));

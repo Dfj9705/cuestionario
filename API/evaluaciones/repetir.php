@@ -1,7 +1,9 @@
 <?php
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
-    
+
+validarIngresoApi();
+
 try {
     $modulo = $_GET['modulo'];
     $tema = $_GET['tema'];

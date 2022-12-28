@@ -67,8 +67,8 @@ const getResultados = async () => {
                 imprimir = [...imprimir, false]
                 buttonDetalle.disabled = true
                 buttonDetalle.title = 'DEBE INICIAR LA EVALUACIÓN'
-                buttonRepetir.disabled = true
-                buttonRepetir.title = 'DEBE INICIAR LA EVALUACIÓN'
+                // buttonRepetir.disabled = true
+                // buttonRepetir.title = 'DEBE INICIAR LA EVALUACIÓN'
             }else{
                 
                 celda5.innerHTML = `<span class="text-danger">REPROBADO</span>`

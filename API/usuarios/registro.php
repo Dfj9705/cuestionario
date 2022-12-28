@@ -2,11 +2,6 @@
 require '../../html_fns.php';
 require '../../includes/headersAPI.php';
 
-
-
-
-
-
 try {
     
     $regex = "$\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$";

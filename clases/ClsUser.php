@@ -53,7 +53,7 @@ class ClsUser extends ClsConex{
     }
 
     public function updateDiploma(){
-        $sql = "UPDATE ciber_usuarios set usu_diploma = '$this->diploma' where usu_id = $this->id ";
+        $sql = "UPDATE ciber_usuarios set usu_diploma = '$this->diploma', usu_fecha_diploma = current where usu_id = $this->id ";
         $resultado = $this->exec_sql($sql);
         return $resultado;
     }
