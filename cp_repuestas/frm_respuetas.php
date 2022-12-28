@@ -1,5 +1,7 @@
 <?php 
-include_once '../includes/header.php'; ?>
+include_once '../includes/header.php'; 
+validarIngreso(2);
+?>
 
     <div class="container-fluid mt-4 " style="min-height: 80vh;">
         
