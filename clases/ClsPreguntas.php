@@ -20,13 +20,8 @@ class ClsPreguntas extends ClsConex{
         return $resultado;
     }
 
-    public function getPreguntas(){
-        $sql = "SELECT pregunta_descripcion as descripcion, subtema_nombre as subtema, pregunta_id as id, pregunta_subtema as id_subtema from ciber_preguntas inner join   ciber_subtemas on pregunta_subtema =subtema_id
-        where pregunta_situacion = 1
-        ";
-        $resultado = $this->exec_query($sql);
-        return $resultado;
-    }
+
+
 
     public function modificarPregunta(){
         $sql = "UPDATE ciber_preguntas set 
@@ -47,6 +42,14 @@ class ClsPreguntas extends ClsConex{
 
         $resultado = $this->exec_sql($sql);
         return $resultado;
+    }
+
+    public function getPreguntas(){
+        $sql =" SELECT pregunta_descripcion as descripcion, subtema_nombre as subtema, pregunta_id as id from ciber_preguntas inner join   ciber_subtemas on pregunta_subtema =subtema_id 
+                where pregunta_situacion = 1";
+        $resultado = $this->exec_query($sql);
+        return $resultado;
+
     }
     
 

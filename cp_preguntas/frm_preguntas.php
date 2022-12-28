@@ -37,7 +37,7 @@ include_once '../includes/header.php'; ?>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8 table-responsive text-center">
-                <table id='tablaTemas' class='table table-hover table-condensed table-bordered w-100'>
+                <table id='tablaPreguntas' class='table table-hover table-condensed table-bordered w-100'>
                     <thead class='table-dark'>
                     <tr>
                     <th >No</th>

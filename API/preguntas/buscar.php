@@ -5,14 +5,15 @@ require '../../includes/headersAPI.php';
 try {
     $ClsPreguntas = new ClsPreguntas();
 
-    $temas = $ClsPreguntas->getPreguntas();
-    $data = [];
-    foreach ($temas as $key => $tema) {
+    $info = $ClsPreguntas->getPreguntas();
+    // var_dump($info);
+    // exit;
+    // $data = [];
+    foreach ($info as $key => $pregunta) {
         $data[]=[
-            'id' => $tema['ID'],
-            'subtema' => $tema['SUBTEMA'],
-            'descripcion' => $tema['DESCRIPCION'],
-            'id_subtema' => $tema['ID_SUBTEMA'],
+            'id' => $pregunta['ID'],
+            'descripcion' => utf8_encode($pregunta['DESCRIPCION']),
+            'subtema' => $pregunta['SUBTEMA'],
             'contador' => $key + 1
            
         ];

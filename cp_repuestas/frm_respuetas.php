@@ -18,20 +18,21 @@ include_once '../includes/header.php'; ?>
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label for="respueta">Posible Respuestas</label>
-                        <input type="text" name="respueta" id="respueta" class="form-control">
+                        <label for="respuesta">Posible Respuestas</label>
+                        <input type="text" name="respuesta" id="respuesta" class="form-control">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-lg-6">
-                        <label for="pregunta">Respuesta correcta</label>
-                        <input class="form-check-input" type="radio" name="buena" id="buena" value="1" aria-label="...">
+                        <label for="tipo">Respuesta correcta</label>
+                        <input class="form-check-input" type="radio" name="correcta" id="correcta" value="1">
+                        </select>
+                        <label for="tipo">Respuesta incorecta</label>
+                        <input class="form-check-input" type="radio" name="correcta" id="incorrecta" value="0">
+                        </select>
 
                     </div>
-                    <div class="col-lg-6">
-                        <label for="nombre">Respuesta  incorecta</label>
-                        <input class="form-check-input" type="radio" name="mala" id="mala" value="2" aria-label="...">
-                    </div>
+                   
                 </div>
                 
                 <div class="row justify-content-center mb-3">
@@ -49,12 +50,13 @@ include_once '../includes/header.php'; ?>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8 table-responsive text-center">
-                <table id='tablaTemas' class='table table-hover table-condensed table-bordered w-100'>
+                <table id='tablaRespuestas' class='table table-hover table-condensed table-bordered w-100'>
                     <thead class='table-dark'>
                     <tr>
                     <th >No</th>
-                    <th >NOMBRE DEL SUBTEMA</th>
                     <th >PREGUNTAS</th>
+                    <th >POSIBLE RESPUESTA</th>
+                    <th >TIPO DE RESPUESTA</th>
                     <th>MODIFICAR</th>
                     <th>ELIMINAR</th>
                     </tr>

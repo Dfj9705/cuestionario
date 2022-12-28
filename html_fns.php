@@ -6,6 +6,7 @@
    	include_once 'clases/ClsPreguntas.php';
    	include_once 'clases/ClsEvaluaciones.php';
    	include_once 'clases/ClsDetalle.php';
+   	include_once 'clases/ClsRespuestas.php';
 
 
 	function formatearGrado ($grado, $codigogrado , $arma, $codigoarma){
